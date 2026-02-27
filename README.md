@@ -49,13 +49,19 @@ graph = StateGraph(MessagesState)
 graph.add_node("memory", memory_node)
 ```
 
+## Configuration
+
+- **Default base URL:** `https://staging-api.alphahuman.xyz`
+- **Override:** Set the `ALPHAHUMAN_BASE_URL` environment variable (e.g. in `.env` or process env) to use a different API endpoint.
+
 ## Usage — environment variables
 
-If you prefer to configure via environment, set `ALPHAHUMAN_API_KEY` (required)
-and optionally `ALPHAHUMAN_BASE_URL`, then call `get_tools()`:
+If you prefer to configure via environment (e.g. `.env`), set `ALPHAHUMAN_API_KEY`
+(required) and optionally `ALPHAHUMAN_BASE_URL`, then call `get_tools()`.
 
 ```bash
 export ALPHAHUMAN_API_KEY="your-api-key"
+# optional: export ALPHAHUMAN_BASE_URL="https://staging-api.alphahuman.xyz"
 ```
 
 ```python
