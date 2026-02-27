@@ -52,7 +52,7 @@ graph.add_node("memory", memory_node)
 ## Usage — environment variables
 
 If you prefer to configure via environment, set `ALPHAHUMAN_API_KEY` (required)
-and optionally `ALPHAHUMAN_BASE_URL`, then call `get_tools()`:
+and optionally `ALPHAHUMAN_BASE_URL` (default is `https://staging-api.alphahuman.xyz`), then call `get_tools()`:
 
 ```bash
 export ALPHAHUMAN_API_KEY="your-api-key"

@@ -33,7 +33,7 @@ from alphahuman_memory import (
     MemoryItem,
     ReadMemoryRequest,
 )
-from alphahuman_memory.types import DEFAULT_BASE_URL
+from alphahuman_memory.types import DEFAULT_BASE_URL  # staging URL; override via ALPHAHUMAN_BASE_URL
 
 _TOKEN_ENV = "ALPHAHUMAN_API_KEY"
 _BASE_URL_ENV = "ALPHAHUMAN_BASE_URL"
@@ -57,8 +57,9 @@ def make_memory_tools(
         ``alphahuman_ingest_memory``, ``alphahuman_read_memory``,
         ``alphahuman_delete_memory``.
     """
+    resolved_base_url = base_url or os.environ.get(_BASE_URL_ENV) or DEFAULT_BASE_URL
     client = AlphahumanMemoryClient(
-        AlphahumanConfig(token=token, base_url=base_url or DEFAULT_BASE_URL)
+        AlphahumanConfig(token=token, base_url=resolved_base_url)
     )
 
     @tool
